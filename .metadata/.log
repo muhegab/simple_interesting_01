@@ -1,0 +1,26 @@
+!SESSION 2026-09-24 11:01:19.458 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -pluginCustomization plugin_customization.ini -cssTheme org.eclipse.e4.ui.css.theme.e4_dark
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -pluginCustomization plugin_customization.ini -cssTheme org.eclipse.e4.ui.css.theme.e4_dark
+
+!ENTRY org.eclipse.core.resources 2 10035 2026-09-24 11:01:25.558
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.ui.ide 4 0 2026-09-24 11:02:40.713
+!MESSAGE Could not import project located at /home/abohegab/Abohegab/work/Wefra/simple_interesting_01
+!STACK 0
+org.eclipse.ui.internal.wizards.datatransfer.CouldNotImportProjectException: Could not import project located at /home/abohegab/Abohegab/work/Wefra/simple_interesting_01
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.toExistingOrNewProject(SmartImportJob.java:555)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.run(SmartImportJob.java:246)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Invalid project description for project 'simple_interesting_01' at 'file:/home/abohegab/Abohegab/work/Wefra/simple_interesting_01' 
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:219)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:95)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:316)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:302)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.createOrImportProject(SmartImportJob.java:594)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.toExistingOrNewProject(SmartImportJob.java:542)
+	... 2 more

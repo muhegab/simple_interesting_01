@@ -1,0 +1,24 @@
+# Enter the linux command to open CLI of PostgreSQL.
+sudo -u postgres psql
+
+-- Now you should be in an CLI of the PostgreSQL server installed on Linux.
+-- The following is by default created globally in the PostgreSQL server of this Ubuntu.
+-- The naming is all in lower case, otherwise the database's name should be always written between quotes.
+CREATE DATABASE projectdb_01;
+CREATE USER user_01 WITH PASSWORD 'password_01';
+
+-- Set the communication preferences of a user of PostgreSQL server, when the user communicates with a client i.e. with a backend server.
+ALTER ROLE user_01 SET client_encoding TO 'utf8';
+ALTER ROLE user_01 SET default_transaction_isolation TO 'read committed';
+ALTER ROLE user_01 SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE projectdb_01 TO user_01;
+
+-- Let the user use the database.
+ALTER DATABASE projectdb_01 OWNER TO user_01;
+
+-- Quit the CLI of the PostgreSQL.
+\q
+
+# Test the connection from the ... with the database inside the server of the PostgreSQL.
+psql -h localhost -U user_01 -d projectdb_01
+

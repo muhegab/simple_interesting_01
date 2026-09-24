@@ -1,0 +1,8 @@
+
+# Let django create a folder for the project of a backend server.
+mkdir myproject && cd myproject
+django-admin startproject backend
+cd backend
+python3 manage.py startapp api
+
+# CORS header is the connector between the React app (Port 3000) and Django server (Port 8000).
