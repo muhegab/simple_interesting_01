@@ -9,6 +9,7 @@ A simple and small website with a database and an access to AI chat window.
 * LangChain  
 * LangGraph  
 * All of the above can be replaced later with Docker.  
+* API keys for some AI model providers list in "backend/api/llm/ApiKeys.txt".
   
 ### To run the project:  
 1. Start the backend server (Django then initialises the configured database, which is a database from PostgreSQL):  
@@ -66,8 +67,40 @@ Every time you change a model, run python3 manage.py makemigrations and python3 
 #### Production:	  
 When deploying, set DEBUG = False, use environment variables for secrets, and configure ALLOWED_HOSTS properly.  
     	  
-### Context diagram
+### Internal Block Diagram IBD with Context Framing
+```mermaid  
+flowchart TB
+    %% External blocks
+    User["User<br/>(Browser)"]
+    DBA["DBA<br/>(Database Admin)"]
+    AIModel["AI Model<br/>(LLM Service)"]
 
-### Component diagram
+    %% System boundary / context frame
+    subgraph System["System Boundary (Context Frame)"]
+        direction LR
+        FE["Frontend (React)"]
+        BE["Backend (Django)"]
+        DB[("Database (Django)")]
+        AI["AI Agents (LangGraph)"]
+    end
 
-### Deployment diagram
+    %% Connections
+    User -->|"Uses UI"| FE
+    FE -->|"REST / GraphQL"| BE
+    BE <-->|"Reads / Writes"| DB
+    DB <-->|"Administered by"| DBA
+    BE -->|"Task request"| AI
+    AI -->|"Inference call"| AIModel
+    AI -->|"Response"| BE
+    BE -->|"Result"| FE
+    FE -->|"Render"| User
+
+    %% Styling
+    classDef external fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+    classDef internal fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+
+    class User,DBA,AIModel external;
+    class FE,BE,DB,AI internal;
+
+    style System fill:#f5f5f5,stroke:#666,stroke-width:2px;
+```
