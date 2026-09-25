@@ -1,0 +1,8 @@
+# Write a python syntax only to be evaluated errorlessly by the python interpreter.
+# The file is not saved as a .py script to remind myself, to not upload the file.
+{
+    "GoogleGenerativeAIEmbeddings":"***",
+    "CohereEmbeddings":"***",
+    "ChatOpenRouter":"***",
+    "ChatGroq":"***"
+}
