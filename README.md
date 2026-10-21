@@ -14,7 +14,7 @@ flowchart TB
         direction LR
         FE["Frontend (React)"]
         BE["Backend (Django)"]
-        DB[("Database (Django)")]
+        DB[("Database (PostgreSQL)")]
         AI["AI Agents (LangGraph)"]
     end
 
